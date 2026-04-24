@@ -1,0 +1,6 @@
+{
+  "name": "Kalkulator Kasir Emas",
+  "description": "Aplikasi web point-of-sale untuk menghitung harga emas per gram dengan aturan pembulatan toko khusus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

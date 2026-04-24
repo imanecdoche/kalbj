@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "Barang": {
+      "title": "Barang",
+      "description": "Item dalam transaksi",
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "harga": { "type": "number" },
+        "gram": { "type": "number" },
+        "totalAwal": { "type": "number" },
+        "totalAkhir": { "type": "number" }
+      },
+      "required": ["label", "harga", "gram", "totalAwal", "totalAkhir"]
+    },
+    "Transaksi": {
+      "title": "Transaksi",
+      "description": "Penyimpanan transaksi cart",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "grandTotal": { "type": "number" },
+        "barangList": {
+          "type": "array",
+          "items": { "$ref": "#/entities/Barang" }
+        }
+      },
+      "required": ["customerName", "tanggal", "grandTotal", "barangList"]
+    }
+  },
+  "firestore": {
+    "/transaksi/{transaksiId}": {
+      "schema": { "$ref": "#/entities/Transaksi" },
+      "description": "Koleksi transaksi"
+    }
+  }
+}
